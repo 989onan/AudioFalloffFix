@@ -126,14 +126,17 @@ namespace AudioFalloffFix
                     {
                         if (__instance.Owner.RolloffMode == FrooxEngine.AudioRolloffMode.Logarithmic)
                         {
-                            if(unityaudio.rolloffMode == UnityEngine.AudioRolloffMode.Logarithmic)
+                            //More hell... At least it's a switch statement. kinda.
+                            // also my variables are named terribly like valve's fingers. being mad about this is valid.
+                            switch (__instance.Owner.AudioTypeGroup.Value)
                             {
-                                //More hell... At least it's a switch statement. kinda.
-                                // also my variables are named terribly like valve's fingers. being mad about this is valid.
-                                switch (__instance.Owner.AudioTypeGroup.Value)
-                                {
-                                    case AudioTypeGroup.Voice:
-                                        if (!Config.GetValue(enablevoices)) break;
+                                case AudioTypeGroup.Voice:
+                                    if (!Config.GetValue(enablevoices))
+                                    {
+                                        unityaudio.rolloffMode = UnityEngine.AudioRolloffMode.Logarithmic;
+                                    }
+                                    else
+                                    {
                                         float2 run0 = Config.GetValue(curvepoint0);
                                         float2 run1 = Config.GetValue(curvepoint1);
                                         float2 run2 = Config.GetValue(curvepoint2);
@@ -162,9 +165,16 @@ namespace AudioFalloffFix
                                             new Keyframe(run9.x,run9.y),
                                             new Keyframe(run10.x, run10.y)
                                         }));
-                                        break;
-                                    case AudioTypeGroup.Multimedia:
-                                        if (!Config.GetValue(enablemultimedia)) break;
+                                    }
+                                        
+                                    break;
+                                case AudioTypeGroup.Multimedia:
+                                    if (!Config.GetValue(enablemultimedia))
+                                    {
+                                        unityaudio.rolloffMode = UnityEngine.AudioRolloffMode.Logarithmic;
+                                    }
+                                    else
+                                    {
                                         float2 run01 = Config.GetValue(mcurvepoint0);
                                         float2 run11 = Config.GetValue(mcurvepoint1);
                                         float2 run21 = Config.GetValue(mcurvepoint2);
@@ -181,21 +191,28 @@ namespace AudioFalloffFix
 
                                         unityaudio.rolloffMode = UnityEngine.AudioRolloffMode.Custom;
                                         unityaudio.SetCustomCurve(AudioSourceCurveType.CustomRolloff, new AnimationCurve(new Keyframe[] {
-                                            new Keyframe(run01.x,run01.y),
-                                            new Keyframe(run11.x,run11.y),
-                                            new Keyframe(run21.x,run21.y),
-                                            new Keyframe(run31.x,run31.y),
-                                            new Keyframe(run41.x,run41.y),
-                                            new Keyframe(run51.x,run51.y),
-                                            new Keyframe(run61.x,run61.y),
-                                            new Keyframe(run71.x,run71.y),
-                                            new Keyframe(run81.x,run81.y),
-                                            new Keyframe(run91.x,run91.y),
-                                            new Keyframe(run101.x, run101.y)
-                                        }));
-                                        break;
-                                    case AudioTypeGroup.SoundEffect:
-                                        if (!Config.GetValue(enablesoundeffect)) break;
+                                        new Keyframe(run01.x,run01.y),
+                                        new Keyframe(run11.x,run11.y),
+                                        new Keyframe(run21.x,run21.y),
+                                        new Keyframe(run31.x,run31.y),
+                                        new Keyframe(run41.x,run41.y),
+                                        new Keyframe(run51.x,run51.y),
+                                        new Keyframe(run61.x,run61.y),
+                                        new Keyframe(run71.x,run71.y),
+                                        new Keyframe(run81.x,run81.y),
+                                        new Keyframe(run91.x,run91.y),
+                                        new Keyframe(run101.x, run101.y)
+                                    }));
+                                    }
+                                        
+                                    break;
+                                case AudioTypeGroup.SoundEffect:
+                                    if (!Config.GetValue(enablesoundeffect))
+                                    {
+                                        unityaudio.rolloffMode = UnityEngine.AudioRolloffMode.Logarithmic;
+                                    }
+                                    else
+                                    {
                                         float2 run02 = Config.GetValue(ecurvepoint0);
                                         float2 run12 = Config.GetValue(ecurvepoint1);
                                         float2 run22 = Config.GetValue(ecurvepoint2);
@@ -212,22 +229,23 @@ namespace AudioFalloffFix
 
                                         unityaudio.rolloffMode = UnityEngine.AudioRolloffMode.Custom;
                                         unityaudio.SetCustomCurve(AudioSourceCurveType.CustomRolloff, new AnimationCurve(new Keyframe[] {
-                                            new Keyframe(run02.x,run02.y),
-                                            new Keyframe(run12.x,run12.y),
-                                            new Keyframe(run22.x,run22.y),
-                                            new Keyframe(run32.x,run32.y),
-                                            new Keyframe(run42.x,run42.y),
-                                            new Keyframe(run52.x,run52.y),
-                                            new Keyframe(run62.x,run62.y),
-                                            new Keyframe(run72.x,run72.y),
-                                            new Keyframe(run82.x,run82.y),
-                                            new Keyframe(run92.x,run92.y),
-                                            new Keyframe(run102.x, run102.y)
-                                        }));
-                                        break;
-                                    default:
-                                        break;
-                                }
+                                        new Keyframe(run02.x,run02.y),
+                                        new Keyframe(run12.x,run12.y),
+                                        new Keyframe(run22.x,run22.y),
+                                        new Keyframe(run32.x,run32.y),
+                                        new Keyframe(run42.x,run42.y),
+                                        new Keyframe(run52.x,run52.y),
+                                        new Keyframe(run62.x,run62.y),
+                                        new Keyframe(run72.x,run72.y),
+                                        new Keyframe(run82.x,run82.y),
+                                        new Keyframe(run92.x,run92.y),
+                                        new Keyframe(run102.x, run102.y)
+                                    }));
+                                    }
+                                        
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                     }

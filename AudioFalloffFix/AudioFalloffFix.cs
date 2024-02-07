@@ -70,27 +70,27 @@ namespace AudioFalloffFix
         [AutoRegisterConfigKey]
         private static ModConfigurationKey<bool> enablemultimedia = new ModConfigurationKey<bool>("multimedia effects logmarithic force", "MultiMedia Restrictor Enabled", () => true);
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint0 = new ModConfigurationKey<float2>("E Curve point 10", "how much to make voices fall off on log at point 10", () => new float2(0f, 1));
+        private static ModConfigurationKey<float2> mcurvepoint0 = new ModConfigurationKey<float2>("M Curve point 10", "how much to make voices fall off on log at point 10", () => new float2(0f, 1));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint1 = new ModConfigurationKey<float2>("E Curve point 1", "how much to make voices fall off on log at point 1", () => new float2(0.1f, .1f));
+        private static ModConfigurationKey<float2> mcurvepoint1 = new ModConfigurationKey<float2>("M Curve point 1", "how much to make voices fall off on log at point 1", () => new float2(0.1f, .1f));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint2 = new ModConfigurationKey<float2>("E Curve point 2", "how much to make voices fall off on log at point 2", () => new float2(.2f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint2 = new ModConfigurationKey<float2>("M Curve point 2", "how much to make voices fall off on log at point 2", () => new float2(.2f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint3 = new ModConfigurationKey<float2>("E Curve point 3", "how much to make voices fall off on log at point 3", () => new float2(.3f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint3 = new ModConfigurationKey<float2>("M Curve point 3", "how much to make voices fall off on log at point 3", () => new float2(.3f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint4 = new ModConfigurationKey<float2>("E Curve point 4", "how much to make voices fall off on log at point 4", () => new float2(.4f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint4 = new ModConfigurationKey<float2>("M Curve point 4", "how much to make voices fall off on log at point 4", () => new float2(.4f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint5 = new ModConfigurationKey<float2>("E Curve point 5", "how much to make voices fall off on log at point 5", () => new float2(.5f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint5 = new ModConfigurationKey<float2>("M Curve point 5", "how much to make voices fall off on log at point 5", () => new float2(.5f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint6 = new ModConfigurationKey<float2>("E Curve point 6", "how much to make voices fall off on log at point 6", () => new float2(.6f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint6 = new ModConfigurationKey<float2>("M Curve point 6", "how much to make voices fall off on log at point 6", () => new float2(.6f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint7 = new ModConfigurationKey<float2>("E Curve point 7", "how much to make voices fall off on log at point 7", () => new float2(.7f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint7 = new ModConfigurationKey<float2>("M Curve point 7", "how much to make voices fall off on log at point 7", () => new float2(.7f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint8 = new ModConfigurationKey<float2>("E Curve point 8", "how much to make voices fall off on log at point 8", () => new float2(.8f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint8 = new ModConfigurationKey<float2>("M Curve point 8", "how much to make voices fall off on log at point 8", () => new float2(.8f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint9 = new ModConfigurationKey<float2>("E Curve point 9", "how much to make voices fall off on log at point 9", () => new float2(.9f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint9 = new ModConfigurationKey<float2>("M Curve point 9", "how much to make voices fall off on log at point 9", () => new float2(.9f, 0));
         [AutoRegisterConfigKey]
-        private static ModConfigurationKey<float2> mcurvepoint10 = new ModConfigurationKey<float2>("E Curve point 10", "how much to make voices fall off on log at point 10", () => new float2(1f, 0));
+        private static ModConfigurationKey<float2> mcurvepoint10 = new ModConfigurationKey<float2>("M Curve point 10", "how much to make voices fall off on log at point 10", () => new float2(1f, 0));
 
 
 

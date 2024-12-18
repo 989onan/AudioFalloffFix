@@ -69,7 +69,7 @@ namespace AudioFalloffFix
                     float max_vol = num/Config.GetValue(audioclamp);
                     for (int i = 0; i < buffer.Length; i++)
                     {
-                        buffer[i] = new StereoSample(buffer[i].left/ max_vol, buffer[i].left / max_vol);
+                        buffer[i] = new StereoSample(buffer[i].left/ max_vol, buffer[i].right / max_vol);
                     }
                 }
 

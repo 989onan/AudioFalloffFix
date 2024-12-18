@@ -1,8 +1,8 @@
 # AudioFalloffFix
 
-A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) A Resonite mod that allows you to change audio falloff for all logmarithic falloffs locally.
+A [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader) mod for [Resonite](https://resonite.com/) A Resonite mod that allows you to force incoming audio to be quieter when it gets loud
 
-The settings menu kinda sucks rn. I want to add draggable graphs for all audio groups.
+**You need to have use default audio device off in your settings**
 
 ## Installation
 1. Install [ResoniteModLoader](https://github.com/resonite-modding-group/ResoniteModLoader).

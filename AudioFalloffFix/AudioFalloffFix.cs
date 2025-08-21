@@ -1,20 +1,9 @@
 ﻿using HarmonyLib;
 using ResoniteModLoader;
-using UnityFrooxEngineRunner;
-using UnityEngine;
-using UnityEngine.Audio;
 using Elements.Core;
 using FrooxEngine;
-using FrooxEngine.ProtoFlux;
-using System.Collections.Generic;
-using System.Reflection.Emit;
-using System.Runtime.Remoting.Channels;
-using UnityEngine.Profiling;
-using System;
 using Elements.Assets;
-using System.Linq;
 using System.Reflection;
-using static UnityEngine.GraphicsBuffer;
 
 namespace AudioFalloffFix
 {

@@ -1,6 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -8,10 +6,11 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>AudioFalloffFix</RootNamespace>
     <AssemblyName>AudioFalloffFix</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFramework>net9.0</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
+    <ProjectGuid>{0EC463CF-7ECB-4B6C-8C6F-5F31BDAAEE72}</ProjectGuid>
     <!-- linux steam -->
     <ResonitePath Condition="Exists('$(HOME)/.steam/steam/steamapps/common/Resonite/')">$(HOME)/.steam/steam/steamapps/common/Resonite/</ResonitePath>
     <!-- windows steam -->
@@ -19,69 +18,26 @@
     <ResonitePath Condition="Exists('D:\SteamLibrary\steamapps\common\Resonite\')">D:\SteamLibrary\steamapps\common\Resonite\</ResonitePath>
     <!-- windows standalone -->
     <ResonitePath Condition="Exists('C:\Resonite\app\')">C:\Resonite\app\</ResonitePath>
-    <ProjectGuid>{0EC463CF-7ECB-4B6C-8C6F-5F31BDAAEE72}</ProjectGuid>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
       <HintPath>$(ResonitePath)rml_libs\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="FrooxEngine">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\FrooxEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityFrooxEngineRunner">
-      <HintPath>UnityFrooxEngineRunner_publicized.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.AudioModule">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\UnityEngine.AudioModule.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>$(ResonitePath)FrooxEngine.dll</HintPath>
     </Reference>
     <Reference Include="Elements.Core">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Elements.Core.dll</HintPath>
+      <HintPath>$(ResonitePath)Elements.Core.dll</HintPath>
     </Reference>
     <Reference Include="Elements.Assets">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\Elements.Assets.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Memory">
-      <HintPath>$(ResonitePath)Resonite_Data\Managed\System.Memory.dll</HintPath>
+      <HintPath>$(ResonitePath)Elements.Assets.dll</HintPath>
     </Reference>
     <Reference Include="ResoniteModLoader">
       <HintPath>$(ResonitePath)Libraries\ResoniteModLoader.dll</HintPath>
     </Reference>
-    <Reference Include="Assembly">
-      <HintPath>$(ResonitePath)Resonite_Data/Managed/Assembly-CSharp.dll</HintPath>
-    </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="AudioFalloffFix.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>copy "$(TargetDir)\$(TargetFileName)" "$(ResonitePath)\rml_mods\"</PostBuildEvent>
-  </PropertyGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(CopyToMods)'=='true'">
+    <Copy SourceFiles="$(TargetPath)" DestinationFolder="$(ResonitePath)rml_mods" />
+    <Message Text="Copied $(TargetFileName) to $(ResonitePath)rml_mods" Importance="high" />
+  </Target>
 </Project>
